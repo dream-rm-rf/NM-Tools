@@ -205,51 +205,51 @@ class localFunction(object):
         except:
             exit(f"\n{prefix}An error occurred in {functionName}, exiting...")
     def loadMenu(self, Method):
-            functionName = 'localFunction.'+inspect.currentframe().f_code.co_name 
-        # try:
+        functionName = 'localFunction.'+inspect.currentframe().f_code.co_name 
+    # try:
+        while True:
+            print("\n")
+            print(pystyle.Center.XCenter(pyfiglet.figlet_format(programName, font = userFont, width=210)))
+            print(pystyle.Center.XCenter(f'by {author}\n'))
+            sleep(1)
+            print(f"{prefix}Choose menu:\n")
+            for i in range(len(menuNames)):
+                if i in range(9):
+                    if menuNames[i][3] == True:
+                        print('     >[ MENU FOLDER ]=[ ' + str(int(i+1)) + '] - ' + menuNames[i][0] )
+                        sleep(0.1)
+                else:
+                    if menuNames[i][3] == True:
+                        print('     >[ MENU FOLDER ]=[' + str(int(i+1)) + '] - ' + menuNames[i][0] )
+                        sleep(0.1)
+            print('\n     To quit input q\exit\quit \n')
+            # try:
             while True:
-                print("\n")
-                print(pystyle.Center.XCenter(pyfiglet.figlet_format(programName, font = userFont, width=210)))
-                print(pystyle.Center.XCenter(f'by {author}\n'))
-                sleep(1)
-                print(f"{prefix}Choose menu:\n")
-                for i in range(len(menuNames)):
-                    if i in range(9):
-                        if menuNames[i][3] == True:
-                            print('     >[ MENU FOLDER ]=[ ' + str(int(i+1)) + '] - ' + menuNames[i][0] )
-                            sleep(0.1)
+                if Method == None:
+                    Method = input(f'{prefix}{input_suffix}')
+                    if Method == 'exit' or Method == 'quit' or Method == 'Exit' or Method == "q":
+                        exit(f'{prefix}Exiting, goodbye!..')
+                    elif Method.isdigit() and 1 <= int(Method) <= int(len(menuNames)):
+                        execute = f"localFunction.{str(menuNames[int(Method) - 1][1])}()"
+                        localFunction.wipe()
+                        exec(execute)
+                        localFunction.prToCont()
+                        localFunction.wipe()
+                        break
                     else:
-                        if menuNames[i][3] == True:
-                            print('     >[ MENU FOLDER ]=[' + str(int(i+1)) + '] - ' + menuNames[i][0] )
-                            sleep(0.1)
-                print('\n     To quit input q\exit\quit \n')
-                try:
-                    while True:
-                        if Method == None:
-                            Method = input(f'{prefix}{input_suffix}')
-                            if Method == 'exit' or Method == 'quit' or Method == 'Exit' or Method == "q":
-                                exit(f'{prefix}Exiting, goodbye!..')
-                            elif Method.isdigit() and 1 <= int(Method) <= int(len(menuNames)):
-                                execute = f"localFunction.{str(menuNames[int(Method) - 1][1])}()"
-                                localFunction.wipe()
-                                exec(execute)
-                                localFunction.prToCont()
-                                localFunction.wipe()
-                                break
-                            else:
-                                print(f"{prefix}The folder number is entered incorrectly! Enter the number corresponding to the number of the folder with functions")
-                        else:
-                            try:
-                                execute = f"localFunction.{str(menuNames[int(Method) - 1][1])}()"
-                                localFunction.wipe()
-                                exec(execute)
-                                localFunction.prToCont()
-                                localFunction.wipe()
-                                break
-                            except:
-                                Method = None
-                except:
-                    exit(f"\n{prefix}An error occurred in {functionName}, exiting...")
+                        print(f"{prefix}The folder number is entered incorrectly! Enter the number corresponding to the number of the folder with functions")
+                else:
+                    try:
+                        execute = f"localFunction.{str(menuNames[int(Method) - 1][1])}()"
+                        localFunction.wipe()
+                        exec(execute)
+                        localFunction.prToCont()
+                        localFunction.wipe()
+                        break
+                    except:
+                        Method = None
+            # except:
+                # exit(f"\n{prefix}An error occurred in {functionName}, exiting...")
                     
     def loadMenuVK(self):
         global Method
