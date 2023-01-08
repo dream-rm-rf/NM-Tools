@@ -1,5 +1,6 @@
 # Nero-Tools
 Универсальный сборник ваших самописных инструментов, с возможностью разложить скрипты по папкам.
+![image](https://user-images.githubusercontent.com/74790446/211194615-58b3eb28-cd85-4282-b646-f5dfe4fed26a.png)
 
 ## Использование
 В PowerShell:
